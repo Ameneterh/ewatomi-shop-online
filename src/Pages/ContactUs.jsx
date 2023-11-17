@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 export default function ContactUs() {
   return (
-    <div className="box-border items-center h-auto md:ml-[90px] flex flex-col text-slate-600 bg-slate-50">
+    <div className="box-border items-center h-auto flex flex-col text-slate-600 bg-slate-50">
       <form className="w-full md:w-[500px] flex flex-col gap-4 px-6">
         <h2 className="font-bold text-[36px] mt-5">Contact Us</h2>
         <input
