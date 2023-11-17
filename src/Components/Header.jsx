@@ -38,14 +38,14 @@ function Header() {
     },
   ];
   return (
-    <div className="box-border flex items-center w-screen justify-between border-b-[1px] mx-auto sticky top-0 text-black bg-white">
+    <div className="box-border flex items-center max-w-screen justify-between border-b-[1px] mx-auto px-[20px] sticky top-0 text-black bg-white">
       <div className="w-[120px] h-[80px] text-white font-extrabold text-[60px] flex justify-center items-center">
         <img
           src="/ewatomi_logo3.png"
           className="w-[120px] h-[60px] object-cover"
         />
       </div>
-      <div className="box-border hidden md:flex gap-12">
+      <div className="box-border hidden md:flex gap-12 mr-8">
         {menu.map((item) => (
           <div
             key={item.id}
