@@ -103,7 +103,7 @@ function Header() {
           </div>
         )}
       </div>
-      <div className="w-full h-[60px] bg-slate-50 py-2">
+      <div className="w-full h-[60px] bg-[rgb(241, 245, 241)] py-2">
         <form className="w-full md:w-[50%] h-full p-3 mx-3 md:mx-auto flex items-center justify-center bg-white rounded-full">
           <input
             type="text"
