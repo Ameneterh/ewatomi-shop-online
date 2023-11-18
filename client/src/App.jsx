@@ -1,25 +1,28 @@
-import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./Components/Header";
 import Home from "./Pages/Home";
 import ContactUs from "./Pages/ContactUs";
 import SideBar from "./Components/SideBar";
+import SignUp from "./Pages/Signup";
+import SignIn from "./Pages/Signin";
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Header />
       <SideBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        {/* <Route path="/sign-up" element={<SignUp />} /> */}
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
         {/* <Route path="/about" element={<About />} /> */}
         {/* <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
         </Route> */}
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
