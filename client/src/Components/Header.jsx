@@ -5,8 +5,7 @@ import { useSelector } from "react-redux";
 
 function Header() {
   const [nav, setNav] = useState(false);
-  // const { currentUser } = useSelector((state) => state.user);
-  const [currentUser, setCurrentUser] = useState(false);
+  const { currentUser } = useSelector((state) => state.user);
 
   const menu = [
     {
@@ -71,26 +70,23 @@ function Header() {
         </div>
 
         {/* to show picture on login or just login if not logged in */}
-        <div
-          onClick={() => setCurrentUser(!currentUser)}
-          className="cursor-pointer"
-        >
-          {currentUser ? (
-            <img
-              className="rounded-full h-12 w-12 object-cover"
-              src="../new-arrival-1.jpg"
-              alt="profile"
-            />
-          ) : (
-            <Link
-              to="/signin"
-              className="text-slate-800 bg-slate-100 hover:opacity-80 rounded-lg px-4 py-2"
-            >
-              Sign In
-            </Link>
-          )}
+        <div className="cursor-pointer">
+          <Link to="/profile">
+            {currentUser ? (
+              <img
+                className="rounded-full h-12 w-12 object-cover"
+                src={currentUser.avatar}
+                alt="profile"
+              />
+            ) : (
+              <p className="text-slate-700 hover:text-slate-500 hover:underline">
+                Sign In
+              </p>
+            )}
+          </Link>
         </div>
 
+        {/* drop down navigation */}
         {nav && (
           <div className="flex flex-col justify-center items-center w-full absolute top-0 left-0 h-screen bg-gradient-to-b from-black via-black to-gray-200 opacity-90 gap-12 text-white font-bold">
             {menu.map((item) => (
@@ -103,6 +99,8 @@ function Header() {
           </div>
         )}
       </div>
+
+      {/* search bar in header */}
       <div className="w-full h-[60px] bg-[rgb(241, 245, 241)] py-2">
         <form className="w-full md:w-[50%] h-full p-3 mx-3 md:mx-auto flex items-center justify-center bg-white rounded-full">
           <input
