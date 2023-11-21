@@ -14,7 +14,13 @@ const listingSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
-    price: {
+    discount: {
+      type: Boolean,
+    },
+    gift: {
+      type: Boolean,
+    },
+    regularPrice: {
       type: Number,
       require: true,
     },
