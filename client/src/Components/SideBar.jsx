@@ -59,7 +59,7 @@ export default function SideBar() {
   ];
 
   return (
-    <div className="flex flex-col top-[25%] md:top-[35%] left-0 fixed">
+    <div className="flex flex-col top-[25%] md:top-[35%] left-0 fixed z-10">
       <ul>
         {links.map(({ id, child, href, style }) => (
           <li
