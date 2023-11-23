@@ -63,3 +63,45 @@ export const getListing = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getListings = async (req, res, next) => {
+  try {
+    const limit = parseInt(req.query.limit) || 9;
+    const startIndex = parseInt(req.query.startIndex) || 0;
+    let discount = req.query.discount;
+
+    if (discount === undefined || discount === "false") {
+      discount = { $in: [false, true] };
+    }
+
+    let gift = req.query.gift;
+    if (gift === undefined || gift === "false") {
+      gift = { $in: [false, true] };
+    }
+
+    let category = req.query.category;
+    if (category === undefined || category === "all") {
+      category = { $in: ["Perfumes", "Hair", "Bags", "Others"] };
+    }
+
+    let regularPrice = parseInt(req.query.regularPrice);
+
+    const searchTerm = req.query.searchTerm || "";
+    const sort = req.query.sort || "createdAt";
+    const order = req.query.order || "desc";
+
+    const listings = await Listing.find({
+      name: { $regex: searchTerm, $options: "i" },
+      category,
+      discount,
+      gift,
+      // regularPrice,
+    })
+      .sort({ [sort]: order })
+      .limit(limit)
+      .skip(startIndex);
+    return res.status(200).json(listings);
+  } catch (error) {
+    next(error);
+  }
+};

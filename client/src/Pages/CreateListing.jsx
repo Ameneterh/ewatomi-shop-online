@@ -164,15 +164,21 @@ export default function CreateListing() {
             onChange={handleChange}
             value={formData.description}
           />
-          <input
-            type="text"
-            placeholder="Category"
+          <select
+            defaultValue="Others"
+            // type="text"
+            // placeholder="Category"
             className="border p-3 rounded-lg"
             id="category"
             required
             onChange={handleChange}
-            value={formData.category}
-          />
+            // value={formData.category}
+          >
+            <option value="Perfumes">Perfumes</option>
+            <option value="Hair">Hair</option>
+            <option value="Bags">Bags</option>
+            <option value="Others">Others</option>
+          </select>
 
           <div className="flex gap-6 flex-wrap">
             <div className=" flex gap-2">
