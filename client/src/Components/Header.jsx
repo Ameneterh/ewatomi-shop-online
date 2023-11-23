@@ -1,11 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Header() {
   const [nav, setNav] = useState(false);
   const { currentUser } = useSelector((state) => state.user);
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set("searchTerm", searchTerm);
+    const searchQuery = urlParams.toString();
+    navigate(`/search?${searchQuery}`);
+  };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const searchTermFromUrl = urlParams.get("searchTerm");
+    if (searchTermFromUrl) {
+      setSearchTerm(searchTermFromUrl);
+    }
+  }, [location.search]);
 
   const menu = [
     {
@@ -102,15 +120,21 @@ function Header() {
 
       {/* search bar in header */}
       <div className="w-full h-[60px] bg-[rgb(241, 245, 241)] py-2">
-        <form className="w-full md:w-[50%] h-full p-3 mx-3 md:mx-auto flex items-center justify-center bg-white rounded-full">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full md:w-[50%] h-full p-3 mx-3 md:mx-auto flex items-center justify-center bg-white rounded-full"
+        >
           <input
             type="text"
             placeholder="enter a search term ..."
             name="search"
             id="search"
             className="w-full h-full focus:outline-none"
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <FaSearch size={20} className="text-slate-300" />
+          <button>
+            <FaSearch size={20} className="text-slate-300" />
+          </button>
         </form>
       </div>
     </div>
