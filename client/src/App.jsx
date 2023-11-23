@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./Components/Header";
 import Home from "./Pages/Home";
 // import ContactUs from "./Pages/ContactUs";
-import SideBar from "./Components/SideBar";
 import SignUp from "./Pages/Signup";
 import SignIn from "./Pages/Signin";
 import PrivateRoute from "./Components/PrivateRoute";
@@ -16,7 +15,6 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <SideBar />
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/contact-us" element={<ContactUs />} /> */}

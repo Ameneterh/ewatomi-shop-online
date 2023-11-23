@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
-import { FaAudioDescription, FaShare } from "react-icons/fa";
+import { FaShare } from "react-icons/fa";
 import { TbCategoryPlus, TbCurrencyNaira } from "react-icons/tb";
+import Contact from "../Components/Contact";
 
 export default function Listing() {
   SwiperCore.use([Navigation]);
@@ -13,7 +15,10 @@ export default function Listing() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [contact, setContact] = useState(false);
   const params = useParams();
+  const { currentUser } = useSelector((state) => state.user);
+  // console.log(currentUser._id);
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -36,7 +41,7 @@ export default function Listing() {
     };
     fetchListing();
   }, [params.listingId]);
-  console.log(loading);
+  console.log(listing);
 
   return (
     <main>
@@ -90,8 +95,15 @@ export default function Listing() {
               {listing.category}
             </p>
             <div className="flex gap-4">
+              {listing.quantity > 0 ? (
+                <p className="bg-red-800 w-full max-w-[200px] text-white text-center py-2 rounded-md">
+                  In Stock
+                </p>
+              ) : (
+                " "
+              )}
               {listing.gift && (
-                <p className="bg-red-900 w-full max-w-[200px] text-white text-center p-1 rounded-md">
+                <p className="bg-blue-600 w-full max-w-[200px] text-white text-center p-1 rounded-md">
                   Free Gift Inside
                 </p>
               )}
@@ -109,9 +121,16 @@ export default function Listing() {
               <span className="font-semibold text-black">Description - </span>
               {listing.description}
             </p>
-            <p className="text-blue-600 font-semibold bg-slate-800">
-              {listing.description}
-            </p>
+
+            {currentUser && listing.userRef !== currentUser._id && !contact && (
+              <button
+                onClick={() => setContact(true)}
+                className="bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3"
+              >
+                Contact Vendor
+              </button>
+            )}
+            {contact && <Contact listing={listing} />}
           </div>
         </div>
       )}

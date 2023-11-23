@@ -28,7 +28,7 @@ const listingSchema = new mongoose.Schema(
       type: Number,
       require: true,
     },
-    qtyInStock: {
+    quantity: {
       type: Number,
       require: true,
     },

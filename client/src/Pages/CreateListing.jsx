@@ -17,7 +17,7 @@ export default function CreateListing() {
     imageUrls: [],
     name: "",
     description: "",
-    category: "",
+    category: "Perfumes",
     discount: false,
     gift: false,
     regularPrice: 1,
