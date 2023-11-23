@@ -22,7 +22,7 @@ export default function CreateListing() {
     gift: false,
     regularPrice: 1,
     discountPrice: 0,
-    quantity: 1,
+    quantity: 0,
   });
   const [imageUploadError, setImageUploadError] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -230,7 +230,7 @@ export default function CreateListing() {
               <input
                 type="number"
                 id="quantity"
-                min="1"
+                min="0"
                 max="500000"
                 required
                 onChange={handleChange}
