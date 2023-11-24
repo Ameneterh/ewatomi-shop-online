@@ -17,7 +17,7 @@ export default function CreateListing() {
     imageUrls: [],
     name: "",
     description: "",
-    category: "Perfumes",
+    category: "",
     discount: false,
     gift: false,
     regularPrice: 1,
@@ -97,6 +97,7 @@ export default function CreateListing() {
         [e.target.id]: e.target.checked,
       });
     }
+
     if (
       e.target.type === "number" ||
       e.target.type === "text" ||
@@ -164,21 +165,30 @@ export default function CreateListing() {
             onChange={handleChange}
             value={formData.description}
           />
-          <select
-            defaultValue="Others"
-            // type="text"
-            // placeholder="Category"
+          <input
+            type="text"
+            placeholder="Category: [perfumes, hair, bags, others]"
+            className="border p-3 rounded-lg"
+            id="category"
+            maxLength="8"
+            minLength="4"
+            required
+            onChange={handleChange}
+            value={formData.category}
+          />
+          {/* <select
+            defaultValue="others"
             className="border p-3 rounded-lg"
             id="category"
             required
             onChange={handleChange}
-            // value={formData.category}
+            value={formData.category}
           >
-            <option value="Perfumes">Perfumes</option>
-            <option value="Hair">Hair</option>
-            <option value="Bags">Bags</option>
-            <option value="Others">Others</option>
-          </select>
+            <option value="perfumes">perfumes</option>
+            <option value="hair">hair</option>
+            <option value="bags">bags</option>
+            <option value="others">others</option>
+          </select> */}
 
           <div className="flex gap-6 flex-wrap">
             <div className=" flex gap-2">

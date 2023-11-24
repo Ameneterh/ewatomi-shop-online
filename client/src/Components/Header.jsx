@@ -130,6 +130,7 @@ function Header() {
             name="search"
             id="search"
             className="w-full h-full focus:outline-none"
+            value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button>

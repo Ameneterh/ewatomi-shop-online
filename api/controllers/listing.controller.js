@@ -81,10 +81,8 @@ export const getListings = async (req, res, next) => {
 
     let category = req.query.category;
     if (category === undefined || category === "all") {
-      category = { $in: ["Perfumes", "Hair", "Bags", "Others"] };
+      category = { $in: ["perfumes", "hair", "bags", "others"] };
     }
-
-    let regularPrice = parseInt(req.query.regularPrice);
 
     const searchTerm = req.query.searchTerm || "";
     const sort = req.query.sort || "createdAt";
@@ -95,7 +93,6 @@ export const getListings = async (req, res, next) => {
       category,
       discount,
       gift,
-      // regularPrice,
     })
       .sort({ [sort]: order })
       .limit(limit)
