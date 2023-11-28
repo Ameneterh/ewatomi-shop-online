@@ -53,7 +53,7 @@ function Header() {
     },
   ];
   return (
-    <div className="max-w-screen flex flex-col">
+    <div className="max-w-full flex flex-col sm:sticky top-0 z-10">
       <div className="flex items-center w-full justify-between border-b-[1px] mx-auto px-[5px] md:px-[40px] sticky top-0 text-black bg-white">
         <div className="w-[120px] h-[80px] text-white font-extrabold text-[60px] flex justify-center items-center">
           <Link to="/">
@@ -119,10 +119,10 @@ function Header() {
       </div>
 
       {/* search bar in header */}
-      <div className="w-full h-[60px] bg-[rgb(241, 245, 241)] py-2">
+      <div className="w-full h-[60px] bg-gray-100 py-2 border-b-2 shadow-md">
         <form
           onSubmit={handleSubmit}
-          className="w-full md:w-[50%] h-full p-3 mx-3 md:mx-auto flex items-center justify-center bg-white rounded-full"
+          className="w-[95%] sm:w-[50%] h-full p-3 mx-3 md:mx-auto flex items-center justify-center bg-white rounded-full"
         >
           <input
             type="text"

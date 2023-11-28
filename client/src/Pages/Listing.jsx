@@ -41,7 +41,7 @@ export default function Listing() {
     };
     fetchListing();
   }, [params.listingId]);
-  console.log(listing);
+  // console.log(listing);
 
   return (
     <main>
@@ -123,6 +123,14 @@ export default function Listing() {
             </p>
 
             {currentUser && listing.userRef !== currentUser._id && !contact && (
+              <button
+                onClick={() => setContact(true)}
+                className="bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3"
+              >
+                Contact Vendor
+              </button>
+            )}
+            {!currentUser && !contact && (
               <button
                 onClick={() => setContact(true)}
                 className="bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3"
