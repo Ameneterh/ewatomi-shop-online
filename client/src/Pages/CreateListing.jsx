@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ThreeDots, Vortex } from "react-loader-spinner";
+
 import {
   getDownloadURL,
   getStorage,
@@ -279,7 +281,26 @@ export default function CreateListing() {
               disabled={uploading}
               className="p-3 text-green-700 border border-green-700 rounded uppercase hover:shadow-lg disabled:opacity-80"
             >
-              {uploading ? "Uploading..." : "Upload"}
+              {uploading ? (
+                <Vortex
+                  visible={true}
+                  height="50"
+                  width="50"
+                  ariaLabel="vortex-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="vortex-wrapper"
+                  colors={[
+                    "red",
+                    "green",
+                    "blue",
+                    "yellow",
+                    "orange",
+                    "purple",
+                  ]}
+                />
+              ) : (
+                "Upload"
+              )}
             </button>
           </div>
           <p className="text-red-700 text-sm">
@@ -305,12 +326,28 @@ export default function CreateListing() {
                 </button>
               </div>
             ))}
-          <button
-            disabled={loading || uploading}
-            className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
-          >
-            {loading ? "Creating ..." : "Create Listing"}
-          </button>
+          <div className="flex items-center justify-center p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80">
+            {loading ? (
+              <ThreeDots
+                height="80"
+                width="80"
+                radius="9"
+                color="#4fa94d"
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                wrapperClassName=""
+                visible={true}
+              />
+            ) : (
+              <button
+                disabled={loading || uploading}
+                className=" bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+              >
+                Create Listing
+              </button>
+            )}
+          </div>
+
           {error && <p className="text-red-700 text-sm">{error}</p>}
         </div>
       </form>

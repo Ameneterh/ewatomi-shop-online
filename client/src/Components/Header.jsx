@@ -83,7 +83,7 @@ function Header() {
         </div>
 
         {/* to show picture on login or just login if not logged in */}
-        <div className="cursor-pointer">
+        <div className="hidden md:inline cursor-pointer">
           <Link to="/profile">
             {currentUser ? (
               <img
@@ -101,9 +101,26 @@ function Header() {
 
         {/* drop down navigation */}
         {nav && (
-          <div className="flex flex-col justify-center items-center w-full absolute top-0 left-0 h-screen bg-gradient-to-b from-black via-black to-gray-200 opacity-90 gap-12 text-white font-bold">
+          <div className="flex flex-col justify-center items-center w-[70%] absolute top-0 left-0 h-[500px] rounded-b-xl bg-gray-500 opacity-95 gap-8 text-white font-bold">
+            <div className="flex flex-col items-center cursor-pointer px-7 py-2 rounded-lg">
+              <Link to="/profile" onClick={() => setNav(!nav)}>
+                {currentUser ? (
+                  <img
+                    className="rounded-full h-[80px] w-[80px] object-cover"
+                    src={currentUser.avatar}
+                    alt="profile"
+                  />
+                ) : (
+                  <p className="text-white hover:text-slate-500 hover:underline">
+                    Sign In
+                  </p>
+                )}
+              </Link>
+              <p className="font-normal mt-3">Visit Profile</p>
+            </div>
+
             {menu.map((item) => (
-              <div key={item.id} className="cursor-pointer text-3xl">
+              <div key={item.id} className="cursor-pointer text-2xl">
                 <Link to={item.link} onClick={() => setNav(!nav)}>
                   <h2>{item.name}</h2>
                 </Link>
