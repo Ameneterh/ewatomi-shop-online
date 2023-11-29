@@ -11,6 +11,8 @@ import UpdateListing from "./Pages/UpdateListing";
 import Listing from "./Pages/Listing";
 import Search from "./Pages/Search";
 import TheBrand from "./Pages/TheBrand";
+import NewArrivals from "./Pages/NewArrivals";
+import Shop from "./Pages/Shop";
 
 function App() {
   return (
@@ -19,7 +21,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/the-brand" element={<TheBrand />} />
-        {/* <Route path="/contact-us" element={<ContactUs />} /> */}
+        <Route path="/new-arrivals" element={<NewArrivals />} />
+        <Route path="/shop" element={<Shop />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<Search />} />

@@ -43,11 +43,6 @@ function Header() {
     },
     {
       id: 4,
-      name: "CATALOGUE",
-      link: "/catalogue",
-    },
-    {
-      id: 5,
       name: "NEW ARRIVALS",
       link: "/new-arrivals",
     },
