@@ -116,7 +116,6 @@ function Header() {
                   </p>
                 )}
               </Link>
-              <p className="font-normal mt-3">Visit Profile</p>
             </div>
 
             {menu.map((item) => (
