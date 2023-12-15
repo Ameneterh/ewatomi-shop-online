@@ -4,15 +4,15 @@ const listingSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      require: true,
+      required: true,
     },
     description: {
       type: String,
-      require: true,
+      required: true,
     },
     category: {
       type: String,
-      require: true,
+      required: true,
     },
     discount: {
       type: Boolean,
@@ -22,23 +22,23 @@ const listingSchema = new mongoose.Schema(
     },
     regularPrice: {
       type: Number,
-      require: true,
+      required: true,
     },
     discountPrice: {
       type: Number,
-      require: true,
+      required: true,
     },
     quantity: {
       type: Number,
-      require: true,
+      required: true,
     },
     imageUrls: {
       type: Array,
-      require: true,
+      required: true,
     },
     userRef: {
       type: String,
-      require: true,
+      required: true,
     },
   },
   { timestamps: true }

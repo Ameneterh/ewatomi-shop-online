@@ -26,6 +26,7 @@ export default function CreateListing() {
     discountPrice: 0,
     quantity: 0,
   });
+
   const [imageUploadError, setImageUploadError] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
@@ -100,6 +101,13 @@ export default function CreateListing() {
       });
     }
 
+    if (e.target.id === "category") {
+      setFormData({
+        ...formData,
+        [e.target.id]: e.target.value,
+      });
+    }
+
     if (
       e.target.type === "number" ||
       e.target.type === "text" ||
@@ -167,7 +175,7 @@ export default function CreateListing() {
             onChange={handleChange}
             value={formData.description}
           />
-          <input
+          {/* <input
             type="text"
             placeholder="Category: [perfumes, hair, bags, others]"
             className="border p-3 rounded-lg"
@@ -177,20 +185,25 @@ export default function CreateListing() {
             required
             onChange={handleChange}
             value={formData.category}
-          />
-          {/* <select
-            defaultValue="others"
+          /> */}
+          <select
+            defaultValue=""
+            required
             className="border p-3 rounded-lg"
             id="category"
-            required
             onChange={handleChange}
-            value={formData.category}
           >
-            <option value="perfumes">perfumes</option>
-            <option value="hair">hair</option>
-            <option value="bags">bags</option>
-            <option value="others">others</option>
-          </select> */}
+            <option value="" disabled selected>
+              Choose category:
+            </option>
+            <option value="accessories">Accessories</option>
+            <option value="bags">Bags</option>
+            <option value="hair">Hair</option>
+            <option value="jeans">Jeans</option>
+            <option value="others">Others</option>
+            <option value="perfumes">Perfumes</option>
+            <option value="roundNeck">Round Neck</option>
+          </select>
 
           <div className="flex gap-6 flex-wrap">
             <div className=" flex gap-2">

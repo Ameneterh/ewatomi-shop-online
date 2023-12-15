@@ -109,6 +109,14 @@ export default function CreateListing() {
         [e.target.id]: e.target.checked,
       });
     }
+
+    if (e.target.id === "category") {
+      setFormData({
+        ...formData,
+        [e.target.id]: e.target.value,
+      });
+    }
+
     if (
       e.target.type === "number" ||
       e.target.type === "text" ||
@@ -176,17 +184,24 @@ export default function CreateListing() {
             onChange={handleChange}
             value={formData.description}
           />
-          <input
-            type="text"
-            placeholder="Category: [perfumes, hair, bags, others]"
+          <select
+            // defaultValue=""
+            required
             className="border p-3 rounded-lg"
             id="category"
-            maxLength="8"
-            minLength="4"
-            required
             onChange={handleChange}
-            value={formData.category}
-          />
+          >
+            <option value="" disabled>
+              Choose category:
+            </option>
+            <option value="accessories">Accessories</option>
+            <option value="bags">Bags</option>
+            <option value="hair">Hair</option>
+            <option value="jeans">Jeans</option>
+            <option value="others">Others</option>
+            <option value="perfumes">Perfumes</option>
+            <option value="roundNeck">Round Neck</option>
+          </select>
 
           <div className="flex gap-6 flex-wrap">
             <div className=" flex gap-2">
