@@ -18,7 +18,9 @@ export default function ListingItem({ listing }) {
           </p>
           <div className="flex item-center gap-2">
             <TbCategoryPlus className="text-green-800 font-semibold w-4 h-4" />
-            <p className="text-sm text-gray-600">{listing.category}</p>
+            <p className="text-sm text-gray-600 capitalize">
+              {listing.category}
+            </p>
           </div>
           <p className="line-clamp-2 text-sm text-gray-600">
             {listing.description}

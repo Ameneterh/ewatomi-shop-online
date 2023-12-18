@@ -1,8 +1,9 @@
 import React from "react";
+import bgceo1 from "/ceo-cover.png";
 
 export default function TheBrand() {
   return (
-    <div className="py-20 px-4 max-w-6xl mx-auto">
+    <div className="py-20 px-4 max-w-4xl mx-auto text-justify">
       <h1 className="text-3xl font-bold mb-4 text-slate-800 text-center">
         About Ewatomi Unique Beauty Place
       </h1>
@@ -51,6 +52,41 @@ export default function TheBrand() {
         <p className="mb-4 text-slate-700">
           To bring fashion to our esteemed customers in an affordable way.
         </p>
+      </div>
+
+      {/* about the ceo */}
+      <div
+        className="mt-10 bg-cover rounded-lg py-5"
+        style={{ backgroundImage: `url(${bgceo1})` }}
+      >
+        <h1 className="text-2xl text-blue-700 font-bold p-3 w-full text-center">
+          Meet the CEO
+        </h1>
+        <div className="px-3 py-5 flex flex-col md:flex-row items-center md:items-start gap-4">
+          <img
+            src="/ceo-image.jpg"
+            alt="ceo image"
+            className="h-80 w-80 md:h-60 md:w-60 rounded-full"
+          />
+
+          <div className="flex flex-col gap-6 text-lg">
+            <p className="text-justify">
+              <b>Oluboba Idowu Ewatomi</b> has been involved with the fashion
+              industry for several years. She has been actively marketing
+              fashion products online since 2018 in Ado Ekiti, Ekiti State,
+              Nigeria. Although praised for the quality of many of the beauty
+              products she sales, she has attained a special notoriety for her
+              hair and hair care products.
+            </p>
+            <p className="text-justify">
+              Beauty products marketed by Oluboba Idowu Ewatomi through Ewatomi
+              Unique Beauty Place include hair bonnet, curl reviver (a
+              formulation specially formulated by her for curly hairs), Argan
+              Serum (for straight and wavy hairs), clothes, shoes, bags, and her
+              quality human hair, wigs, and hair accessories.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

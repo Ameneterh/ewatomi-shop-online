@@ -31,20 +31,20 @@ function Header() {
       name: "HOME",
       link: "/",
     },
-    {
-      id: 2,
-      name: "THE BRAND",
-      link: "/the-brand",
-    },
+    // {
+    //   id: 2,
+    //   name: "SHOP",
+    //   link: "/shop",
+    // },
     {
       id: 3,
-      name: "SHOP",
-      link: "/shop",
+      name: "NEW ARRIVALS",
+      link: "/new-arrivals",
     },
     {
       id: 4,
-      name: "NEW ARRIVALS",
-      link: "/new-arrivals",
+      name: "THE BRAND",
+      link: "/the-brand",
     },
   ];
   return (

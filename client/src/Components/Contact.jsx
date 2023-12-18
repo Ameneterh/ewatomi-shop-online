@@ -38,26 +38,23 @@ export default function Contact({ listing }) {
                 target="_blank"
                 className="flex items-center gap-2"
               >
-                <MdOutlineMarkEmailUnread size={30} /> WhatsApp
+                <MdOutlineWhatsapp size={30} /> WhatsApp
               </Link>
             </li>
             <li className="flex items-center justify-center w-36 h-10 px-4  duration-300 bg-gray-500 rounded-lg hover:opacity-80">
               <Link
-                to={`mailto:${vendor.email}?subject=Regarding ${listing.name}`}
+                to={`mailto:ewatomiuniquebeautyplace@gmail.com?subject=Regarding ${listing.name}`}
                 className="flex items-center gap-2"
               >
                 <MdOutlineMarkEmailUnread size={30} /> Email
               </Link>
             </li>
             <li className="flex items-center justify-center w-36 h-10 px-4  duration-300 bg-gray-500 rounded-lg hover:opacity-80">
-              <Link
-                to="mailto:ewatomiuniquebeautyplace@gmail.com"
-                className="flex items-center gap-2"
-              >
-                <MdOutlineMarkEmailUnread size={30} /> Call
+              <Link to="tel:+2348161238267" className="flex items-center gap-2">
+                <MdAddIcCall size={30} /> Call
               </Link>
             </li>
-            {listing.category === "Perfumes" ? (
+            {listing.category === "perfumes" ? (
               <li className="flex items-center justify-center w-36 h-10 px-4  duration-300 bg-gray-500 rounded-lg hover:opacity-80">
                 <Link
                   to="https://www.instagram.com/uniquescentsby_ewa"
@@ -76,14 +73,6 @@ export default function Contact({ listing }) {
                 </Link>
               </li>
             )}
-            <li className="flex items-center justify-center w-36 h-10 px-4  duration-300 bg-gray-500 rounded-lg hover:opacity-80">
-              <Link
-                to="https://www.twitter.com"
-                className="flex items-center gap-2"
-              >
-                <IoLogoTwitter size={30} /> Twitter (X)
-              </Link>
-            </li>
           </ul>
         </div>
       )}
