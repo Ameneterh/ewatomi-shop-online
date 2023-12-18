@@ -50,13 +50,18 @@ function Header() {
   return (
     <div className="max-w-full flex flex-col sm:sticky top-0 z-10">
       <div className="flex items-center w-full justify-between border-b-[1px] mx-auto px-[5px] md:px-[40px] sticky top-0 text-black bg-white">
-        <div className="w-[120px] h-[80px] text-white font-extrabold text-[60px] flex justify-center items-center">
-          <Link to="/">
-            <img
-              src="/ewatomi_logo3.png"
-              className="w-[120px] h-[60px] object-cover"
-            />
+        <div className="w-[300px] h-[90px] flex items-center">
+          <Link to="/" className="w-[100px]">
+            <img src="/ewatomi_logo1.png" className="object-cover" />
           </Link>
+          <div className="hidden md:flex flex-col uppercase w-[200px]">
+            <span className="text-4xl font-extrabold text-red-700 w-full">
+              ewatomi
+            </span>
+            <span className="text-md text-red-300 font-bold">
+              unique beauty place
+            </span>
+          </div>
         </div>
         <div className="hidden md:flex gap-12">
           {menu.map((item) => (
