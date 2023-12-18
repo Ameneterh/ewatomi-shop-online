@@ -11,8 +11,6 @@ export default function Home() {
   const [giftListing, setGiftListing] = useState([]);
   SwiperCore.use(Navigation);
 
-  console.log(giftListing);
-
   useEffect(() => {
     const fetchDiscountListings = async () => {
       try {
@@ -71,14 +69,13 @@ export default function Home() {
         {discountListing &&
           discountListing.length > 0 &&
           discountListing.map((listing) => (
-            <SwiperSlide>
+            <SwiperSlide key={listing._id}>
               <div
                 style={{
                   background: `url(${listing.imageUrls[0]}) center no-repeat`,
                   backgroundSize: "cover",
                 }}
                 className="h-[500px]"
-                key={listing._id}
               ></div>
             </SwiperSlide>
           ))}
@@ -128,27 +125,5 @@ export default function Home() {
         )}
       </div>
     </div>
-
-    // <div
-    //   name="home"
-    //   className="h-screen w-full scroll-m-0 bg-gray-100 box-border"
-    // >
-    //   <div className="items-center h-full mx-auto flex flex-col md:flex-row shrink justify-around scroll-m-0 bg-[#FDCC4B]">
-    //     <img src="/new-arrival-2.png" className="h-full" />
-    //     <div className="flex flex-col justify-start items-center h-full w-full text-center">
-    //       <div className="hidden md:inline-block h-[120px] border-r-[2px]"></div>
-    //       <div className="hidden md:inline-block h-[10px] w-[10px] bg-red-400 rounded-full mb-[44px]"></div>
-    //       <h2 className="uppercase mt-[16px] text-[20px] font-semibold text-white">
-    //         new christmas collection 2023
-    //       </h2>
-    //       <h2 className="uppercase text-[60px] md:text-[80px] font-bold text-white">
-    //         arrival sales
-    //       </h2>
-    //       <button className="uppercase bg-black text-white font-bold hover:scale-110 hover:opacity-90 transition-all ease-in-out rounded-lg w-[150px] h-12 mb-[16px]">
-    //         shop now
-    //       </button>
-    //     </div>
-    //   </div>
-    // </div>
   );
 }

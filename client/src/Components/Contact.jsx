@@ -10,6 +10,8 @@ import {
 export default function Contact({ listing }) {
   const [vendor, setVendor] = useState(null);
 
+  console.log(vendor);
+
   useEffect(() => {
     const fetchVendor = async () => {
       try {
@@ -29,7 +31,7 @@ export default function Contact({ listing }) {
         <div className="flex flex-col gap-2">
           <p>
             Contact <span className="font-semibold">{vendor.username}</span> for{" "}
-            <span className="font-semibold">{listing.name.toLowerCase()}</span>
+            <span className="font-semibold capitalize">{listing.name}</span>
           </p>
           <ul className="flex items-center justify-between flex-wrap w-full text-white mb-3 gap-3">
             <li className="flex items-center justify-center w-36 h-10 px-4  duration-300 bg-gray-500 rounded-lg hover:opacity-80">

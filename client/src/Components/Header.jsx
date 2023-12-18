@@ -48,7 +48,7 @@ function Header() {
     },
   ];
   return (
-    <div className="max-w-full flex flex-col sm:sticky top-0 z-10">
+    <div className="max-w-full flex flex-col sm:sticky top-0 z-50 relative">
       <div className="flex items-center w-full justify-between border-b-[1px] mx-auto px-[5px] md:px-[40px] sticky top-0 text-black bg-white">
         <div className="w-[300px] h-[90px] flex items-center">
           <Link to="/" className="w-[100px]">
@@ -78,7 +78,7 @@ function Header() {
 
         <div
           onClick={() => setNav(!nav)}
-          className="w-[90px] h-[90px] z-10 flex justify-center items-center cursor-pointer md:hidden"
+          className="w-[90px] h-[90px] z-40 flex justify-center items-center cursor-pointer md:hidden"
         >
           {nav ? (
             <FaTimes size={30} className="text-white" />
@@ -106,7 +106,7 @@ function Header() {
 
         {/* drop down navigation */}
         {nav && (
-          <div className="flex flex-col justify-center items-center w-[70%] absolute top-0 left-0 h-[500px] rounded-b-xl bg-gray-500 opacity-95 gap-8 text-white font-bold">
+          <div className="flex flex-col justify-center items-center w-[70%] absolute top-0 right-0 h-[500px] rounded-b-xl bg-gray-500 opacity-95 gap-8 text-white font-bold z-30">
             <div className="flex flex-col items-center cursor-pointer px-7 py-2 rounded-lg">
               <Link to="/profile" onClick={() => setNav(!nav)}>
                 {currentUser ? (
