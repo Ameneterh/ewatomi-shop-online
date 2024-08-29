@@ -1,21 +1,23 @@
 import { Button } from "flowbite-react";
-import React from "react";
+import React, { useContext } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { TbCategoryPlus, TbCurrencyNaira } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { ShopContext } from "../Context/ShopContext";
 
 export default function ListingItem({ listing }) {
   const discountPrice = listing.discount ? listing.discountPrice : 0;
   const regularPrice = listing.regularPrice;
   const discount = (regularPrice - discountPrice).toLocaleString();
+  const { currency } = useContext(ShopContext);
 
   return (
     <div className="group relative w-full sm:w-64 min-h-96 flex flex-col justify-between gap-1 hover:border hover:shadow-md overflow-hidden shadow-md bg-white rounded-xl pt-2">
       <div className="flex items-center justify-between w-full h-8 p-2">
         <div className=""></div>
         <div className="flex flex-col">
-          <div className="rounded-sm bg-green-500 px-1 font-semibold text-white z-10">
-            &#x20A6; {discount} off
+          <div className="flex items-center text-sm rounded-sm bg-green-500 px-1 font-semibold text-white z-10">
+            {currency} {discount} off
           </div>
           <div className="bg-green-500 h-3 w-3 rotate-45 ml-2 -mt-2"></div>
         </div>
@@ -30,8 +32,9 @@ export default function ListingItem({ listing }) {
       <p className="px-2 text-lg font-semibold">{listing.name}</p>
       <p className="px-2 text-sm line-clamp-2">{listing.description}</p>
       <div className="flex items-center justify-between font-bold text-sm p-2">
-        <span className="text-green-500">
-          &#x20A6; {discountPrice.toLocaleString()}
+        <span className="flex items-center text-green-500">
+          {currency}
+          {discountPrice.toLocaleString()}
         </span>
         <span className="text-red-400 font-normal line-through">
           &#x20A6; {regularPrice.toLocaleString()}

@@ -27,7 +27,7 @@ function App() {
         <Route path="/the-brand" element={<TheBrand />} />
         <Route path="/collection" element={<Collections />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/shop" element={<Shop />} />
+        {/* <Route path="/shop" element={<Shop />} /> */}
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<Search />} />

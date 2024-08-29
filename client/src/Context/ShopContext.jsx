@@ -20,7 +20,7 @@ const ShopContextProvider = (props) => {
     fetchProducts();
   }, []);
 
-  const currency = TbCurrencyNaira;
+  const currency = <TbCurrencyNaira className="text-xl" />;
   const delivery = "lagos" ? 1000 : 3000;
 
   const value = {

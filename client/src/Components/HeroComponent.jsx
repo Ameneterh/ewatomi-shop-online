@@ -7,7 +7,7 @@ export default function HeroComponent() {
     <div className="flex flex-col-reverse md:flex-row pt-8 mb-8 max-w-6xl mx-auto items-center justify-center border-b-2">
       <div className="flex flex-col w-full lg:w-1/2 gap-6">
         <h1 className="text-slate-700 font-bold text-3xl sm:text-6xl">
-          Find your next <span className="text-slate-500">perfect </span>
+          Find your <span className="text-red-400">perfect </span>
           beauty product with ease
         </h1>
 
