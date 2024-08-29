@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
-import Header from "./Components/Header";
+import HeaderComponent from "./Components/HeaderComponent";
 import Home from "./Pages/Home";
 import SignUp from "./Pages/Signup";
 import SignIn from "./Pages/Signin";
@@ -13,15 +12,19 @@ import Search from "./Pages/Search";
 import TheBrand from "./Pages/TheBrand";
 import NewArrivals from "./Pages/NewArrivals";
 import Shop from "./Pages/Shop";
+import ContactPage from "./Pages/ContactPage";
+import FooterComponent from "./Components/FooterComponent";
+import Collections from "./Pages/Collections";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <HeaderComponent />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/the-brand" element={<TheBrand />} />
-        <Route path="/new-arrivals" element={<NewArrivals />} />
+        <Route path="/collection" element={<Collections />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
@@ -36,34 +39,9 @@ function App() {
           />
         </Route>
       </Routes>
+      <FooterComponent />
     </BrowserRouter>
   );
 }
 
 export default App;
-
-// import Home from "./pages/home";
-// import Signin from "./pages/signin";
-// import SignOut from "./pages/Signup";
-// import SignUp from "./pages/Signup";
-// import About from "./pages/about";
-// import Profile from "./pages/profile";
-// import Header from "./components/Header";
-// import PrivateRoute from "./components/PrivateRoute";
-
-// export default function App() {
-//   return (
-//     <BrowserRouter>
-//       <Header />
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//         <Route path="/sign-in/" element={<Signin />} />
-//         <Route path="/sign-up" element={<SignUp />} />
-//         <Route path="/about" element={<About />} />
-//         <Route element={<PrivateRoute />}>
-//           <Route path="/profile" element={<Profile />} />
-//         </Route>
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
