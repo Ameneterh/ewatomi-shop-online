@@ -15,6 +15,8 @@ import Shop from "./Pages/Shop";
 import ContactPage from "./Pages/ContactPage";
 import FooterComponent from "./Components/FooterComponent";
 import Collections from "./Pages/Collections";
+import AdminOnlyRoute from "./Components/AdminOnlyRoute";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   return (
@@ -32,11 +34,14 @@ function App() {
         <Route path="/listing/:listingId" element={<Listing />} />
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
+        </Route>
+        <Route element={<AdminOnlyRoute />}>
           <Route path="/create-listing" element={<CreateListing />} />
           <Route
             path="/update-listing/:listingId"
             element={<UpdateListing />}
           />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
       <FooterComponent />

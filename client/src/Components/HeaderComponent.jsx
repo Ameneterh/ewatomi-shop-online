@@ -50,6 +50,7 @@ function HeaderComponent() {
         return;
       }
       dispatch(deleteUserSuccess(data));
+      navigate("/");
     } catch (error) {
       dispatch(deleteUserFailure(data.message));
     }
@@ -103,9 +104,15 @@ function HeaderComponent() {
                   user1@company.com
                 </span>
               </Dropdown.Header>
-              <Dropdown.Item icon={CgProfile}>Profile</Dropdown.Item>
-              <Dropdown.Item icon={HiViewGrid}>Dashboard</Dropdown.Item>
-              <Dropdown.Item icon={HiCog}>Add Listing</Dropdown.Item>
+              <Dropdown.Item icon={CgProfile}>
+                <Link to="/profile">Profile</Link>
+              </Dropdown.Item>
+              <Dropdown.Item icon={HiViewGrid}>
+                <Link to="/dashboard">Dashboard</Link>
+              </Dropdown.Item>
+              <Dropdown.Item icon={HiCog}>
+                <Link to="/create-listing">Add Listing</Link>
+              </Dropdown.Item>
               <Dropdown.Divider />
               <Dropdown.Item icon={FaSignOutAlt} onClick={handleSignOut}>
                 Sign Out
