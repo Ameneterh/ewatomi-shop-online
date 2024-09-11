@@ -10,13 +10,14 @@ import UpdateListing from "./Pages/UpdateListing";
 import Listing from "./Pages/Listing";
 import Search from "./Pages/Search";
 import TheBrand from "./Pages/TheBrand";
-import NewArrivals from "./Pages/NewArrivals";
-import Shop from "./Pages/Shop";
 import ContactPage from "./Pages/ContactPage";
 import FooterComponent from "./Components/FooterComponent";
 import Collections from "./Pages/Collections";
 import AdminOnlyRoute from "./Components/AdminOnlyRoute";
 import Dashboard from "./Pages/Dashboard";
+import Cart from "./Pages/Cart";
+import PlaceOrder from "./Pages/PlaceOrder";
+import Orders from "./Pages/Orders";
 
 function App() {
   return (
@@ -27,11 +28,13 @@ function App() {
         <Route path="/the-brand" element={<TheBrand />} />
         <Route path="/collection" element={<Collections />} />
         <Route path="/contact" element={<ContactPage />} />
-        {/* <Route path="/shop" element={<Shop />} /> */}
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<Search />} />
         <Route path="/listing/:listingId" element={<Listing />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/place-order" element={<PlaceOrder />} />
+        <Route path="/orders" element={<Orders />} />
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
         </Route>
