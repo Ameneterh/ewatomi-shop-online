@@ -70,19 +70,19 @@ export const getListings = async (req, res, next) => {
     const startIndex = parseInt(req.query.startIndex) || 0;
     let discount = req.query.discount;
 
-    if (discount === undefined || discount === "false") {
-      discount = { $in: [false, true] };
-    }
+    // if (discount === undefined || discount === "false") {
+    //   discount = { $in: [false, true] };
+    // }
 
-    let gift = req.query.gift;
-    if (gift === undefined || gift === "false") {
-      gift = { $in: [false, true] };
-    }
+    // let gift = req.query.gift;
+    // if (gift === undefined || gift === "false") {
+    //   gift = { $in: [false, true] };
+    // }
 
-    let category = req.query.category;
-    if (category === undefined || category === "all") {
-      category = { $in: ["perfumes", "hair", "bags", "others"] };
-    }
+    // let category = req.query.category;
+    // if (category === undefined || category === "all") {
+    //   category = { $in: ["men", "women", "kids", "unisex"] };
+    // }
 
     const searchTerm = req.query.searchTerm || "";
     const sort = req.query.sort || "createdAt";
@@ -90,9 +90,9 @@ export const getListings = async (req, res, next) => {
 
     const listings = await Listing.find({
       name: { $regex: searchTerm, $options: "i" },
-      category,
-      discount,
-      gift,
+      // category,
+      // discount,
+      // gift,
     })
       .sort({ [sort]: order })
       .limit(limit)
