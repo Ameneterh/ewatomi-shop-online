@@ -12,11 +12,11 @@ export default function ListingItem({ listing }) {
   const { currency } = useContext(ShopContext);
 
   return (
-    <div className="group relative w-full sm:w-64 min-h-96 flex flex-col justify-between gap-1 hover:border hover:shadow-md overflow-hidden shadow-md bg-white rounded-xl pt-2">
+    <div className="group relative w-full sm:w-52 min-h-80 flex flex-col justify-between gap-1 hover:border hover:shadow-md overflow-hidden shadow-md bg-white rounded-xl pt-2">
       <div className="flex items-center justify-between w-full h-8 p-2">
         <div className=""></div>
         <div className="flex flex-col">
-          <div className="flex items-center text-sm rounded-sm bg-green-500 px-1 font-semibold text-white z-10">
+          <div className="flex items-center text-xs rounded-sm bg-green-500 px-1 font-semibold text-white z-10">
             {currency} {discount} off
           </div>
           <div className="bg-green-500 h-3 w-3 rotate-45 ml-2 -mt-2"></div>
@@ -26,11 +26,11 @@ export default function ListingItem({ listing }) {
         <img
           src={listing.imageUrls[0]}
           alt={listing._id}
-          className="h-52 mx-auto w-full"
+          className="h-36 mx-auto w-full"
         />
       </Link>
-      <p className="px-2 text-lg font-semibold">{listing.name}</p>
-      <p className="px-2 text-sm line-clamp-2">{listing.description}</p>
+      <p className="px-2 text-sm font-semibold">{listing.name}</p>
+      <p className="px-2 text-xs line-clamp-2">{listing.description}</p>
       <div className="flex items-center justify-between font-bold text-sm p-2">
         <span className="flex items-center text-green-500">
           {currency}

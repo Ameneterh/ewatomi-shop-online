@@ -20,13 +20,20 @@ const ShopContextProvider = (props) => {
     fetchProducts();
   }, []);
 
-  const currency = <TbCurrencyNaira className="text-xl" />;
+  const currency = <TbCurrencyNaira />;
   const delivery = "lagos" ? 1000 : 3000;
+
+  const [search, setSearch] = useState("");
+  const [showSearch, setShowSearch] = useState(false);
 
   const value = {
     products,
     currency,
     delivery,
+    search,
+    setSearch,
+    showSearch,
+    setShowSearch,
   };
 
   return (

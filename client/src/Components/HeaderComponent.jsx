@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Avatar, Button, Dropdown, Navbar, TextInput } from "flowbite-react";
 import { HiViewGrid } from "react-icons/hi";
 import { CgProfile } from "react-icons/cg";
@@ -15,6 +15,7 @@ import {
   deleteUserSuccess,
   signOutUserStart,
 } from "../redux/user/userSlice";
+import { ShopContext } from "../Context/ShopContext";
 
 function HeaderComponent() {
   const [visible, setVisible] = useState(false);
@@ -23,6 +24,8 @@ function HeaderComponent() {
   const navigate = useNavigate();
   const path = useLocation().pathname;
   const dispatch = useDispatch();
+
+  const { setShowSearch } = useContext(ShopContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -81,7 +84,10 @@ function HeaderComponent() {
             as="div"
             className="h-10 w-10 p-3 bg-slate-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-slate-100"
           >
-            <GrSearch className="text-2xl text-black font-bold" />
+            <GrSearch
+              onClick={() => setShowSearch(true)}
+              className="text-2xl text-black font-bold"
+            />
           </Button>
 
           {/* currentuser profile */}
@@ -169,7 +175,7 @@ function HeaderComponent() {
           </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
-      <div
+      {/* <div
         className={`w-full bg-slate-500 p-2 transition-all ${
           visible === true ? "block" : "hidden"
         }`}
@@ -190,7 +196,7 @@ function HeaderComponent() {
             <AiFillCloseCircle className="text-3xl text-red-400 hover:scale-125 hover:text-red-600 transition-all" />
           </Button>
         </div>
-      </div>
+      </div> */}
     </>
     // <div className="max-w-full flex flex-col sm:sticky top-0 z-50 relative">
     //   <div className="flex items-center w-full justify-between border-b-[1px] mx-auto px-[5px] md:px-[40px] sticky top-0 text-black bg-white">

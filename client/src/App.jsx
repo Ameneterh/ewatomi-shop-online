@@ -18,11 +18,13 @@ import Dashboard from "./Pages/Dashboard";
 import Cart from "./Pages/Cart";
 import PlaceOrder from "./Pages/PlaceOrder";
 import Orders from "./Pages/Orders";
+import SearchBar from "./Components/SearchBar";
 
 function App() {
   return (
     <BrowserRouter>
       <HeaderComponent />
+      <SearchBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/the-brand" element={<TheBrand />} />

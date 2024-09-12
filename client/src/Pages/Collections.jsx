@@ -5,7 +5,7 @@ import Title from "../Components/Title";
 import ListingItem from "../Components/ListingItem";
 
 export default function Collections() {
-  const { products } = useContext(ShopContext);
+  const { products, search, showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
@@ -35,6 +35,12 @@ export default function Collections() {
   const applyFilter = () => {
     let productsCopy = products.slice();
 
+    if (showSearch && search) {
+      productsCopy = productsCopy.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
     if (category.length > 0) {
       productsCopy = productsCopy.filter((item) =>
         category.includes(item.category)
@@ -43,10 +49,6 @@ export default function Collections() {
 
     setFilterProducts(productsCopy);
   };
-
-  useEffect(() => {
-    applyFilter();
-  }, [category, subCategory]);
 
   const sortProduct = () => {
     const fpCopy = filterProducts.slice();
@@ -69,6 +71,10 @@ export default function Collections() {
         break;
     }
   };
+
+  useEffect(() => {
+    applyFilter();
+  }, [category, subCategory, search, showSearch]);
 
   useEffect(() => {
     sortProduct();
@@ -202,12 +208,12 @@ export default function Collections() {
 
       {/* right side */}
       <div className="flex-1">
-        <div className="flex justify-between text-base sm:text-2xl mb-4">
+        <div className="flex flex-col sm:flex-row justify-between text-base sm:text-2xl mb-4">
           <Title text1={"all"} text2={"collections"} />
           {/* product sort */}
           <select
             onChange={(e) => setSortType(e.target.value)}
-            className="border-2 border-gray-300 text-sm px-1"
+            className="border-[1px] border-gray-300 rounded-full text-sm px-2"
           >
             <option value="relevant">Sort by: Relevant</option>
             <option value="low-high">Sort by: Low to High</option>
@@ -216,7 +222,7 @@ export default function Collections() {
         </div>
 
         {/* map products */}
-        <div className="grid gric-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-6">
+        <div className="grid gric-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
           {filterProducts.map((item, index) => (
             <ListingItem key={index} listing={item} />
           ))}
