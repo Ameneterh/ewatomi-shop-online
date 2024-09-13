@@ -5,10 +5,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
-import { FaShare, FaStar } from "react-icons/fa";
+import { FaCartPlus, FaShare, FaStar } from "react-icons/fa";
 import { TbCategoryPlus, TbCurrencyNaira } from "react-icons/tb";
 import Contact from "../Components/Contact";
 import { ShopContext } from "../Context/ShopContext";
+import RelatedProducts from "../Components/RelatedProducts";
 
 export default function Listing() {
   SwiperCore.use([Navigation]);
@@ -24,13 +25,13 @@ export default function Listing() {
   const { products, currency } = useContext(ShopContext);
   const [productsData, setProductsData] = useState(false);
   const [image, setImage] = useState("");
+  const [size, setSize] = useState("");
 
   const fetchProductsData = async () => {
     products.map((item) => {
       if (item._id === listingId) {
         setProductsData(item);
         setImage(item.imageUrls[0]);
-        console.log(item);
 
         return null;
       }
@@ -104,9 +105,65 @@ export default function Listing() {
             {productsData.description}
           </p>
 
-          <div className="flex flex-col gap-4 my-8"></div>
+          <div className="flex flex-col gap-1 my-8">
+            <p>Select Size:</p>
+            <div className="flex gap-2">
+              {productsData.sizes ? (
+                <>
+                  {productsData.sizes.map((item, index) => (
+                    <button
+                      onClick={() => setSize(item)}
+                      className={`flex items-center justify-center border py-2 px-4 bg-gray-100 rounded-md shadow-sm w-12 hover:bg-gray-200 ${
+                        item === size ? "border-orange-500" : ""
+                      }`}
+                      key={index}
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </>
+              ) : (
+                <div>This product has no sizes!</div>
+              )}
+            </div>
+          </div>
+          <button
+            // onClick={handleAddToCart}
+            className="flex items-center bg-green-700 px-8 py-3 text-sm font-medium text-white hover:bg-green-500 active:bg-blue-600 rounded-md"
+          >
+            <FaCartPlus className="text-lg mr-1" />
+            ADD TO CART
+          </button>
+          <hr className="mt-8 sm:w-4/5 border-gray-400" />
+          <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
+            <p>100% Original Product.</p>
+            <p>Cash on delivery option available!</p>
+            <p>Easy return and exchange policy within 7 days</p>
+          </div>
         </div>
       </div>
+
+      {/* Description and Review Section */}
+      <div className="mt-10">
+        <div className="flex">
+          <b className="border px-5 py-3 text-sm">Description</b>
+          <p className="border px-5 py-3 text-sm">Reviews (152)</p>
+        </div>
+      </div>
+      <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
+        <p>
+          <span className="font-medium">Ewatomi Unique Beauty Place's</span>{" "}
+          online shop is a website (digital platform) that allows you to buy or
+          sell products or services over the internet without needing to own or
+          visit a physical store.
+        </p>
+      </div>
+
+      {/* display related products */}
+      <RelatedProducts
+        category={productsData.category}
+        subCategory={productsData.subCategory}
+      />
     </div>
   ) : (
     <div className="opacity-0 min-h-screen"></div>
