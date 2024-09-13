@@ -24,7 +24,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <ToastContainer />
       <HeaderComponent />
       <SearchBar />
@@ -53,7 +53,7 @@ function App() {
         </Route>
       </Routes>
       <FooterComponent />
-    </BrowserRouter>
+    </>
   );
 }
 

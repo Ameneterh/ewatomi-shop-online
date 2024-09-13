@@ -40,15 +40,6 @@ export default function ListingItem({ listing }) {
           &#x20A6; {regularPrice.toLocaleString()}
         </span>
       </div>
-      {/* <div className="w-full h-10 bg-red-600 hidden group-hover:flex text-white items-center justify-center text-sm font-semibold"> */}
-      <Button
-        // onClick={handleAddToCart}
-        className="rounded-none gap-1 items-center hidden group-hover:flex"
-      >
-        <FaCartPlus className="text-xl" />
-        ADD TO CART
-      </Button>
-      {/* </div> */}
     </div>
 
     // <div className="bg-white shadow-md hover:shadow-lg transition-shadow overflow-hidden rounded-lg w-full sm:w-[250px]">

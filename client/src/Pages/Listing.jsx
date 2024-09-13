@@ -27,42 +27,20 @@ export default function Listing() {
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
 
-  const fetchProductsData = async () => {
-    products.map((item) => {
-      if (item._id === listingId) {
-        setProductsData(item);
-        setImage(item.imageUrls[0]);
-
-        return null;
-      }
-    });
-  };
-
   useEffect(() => {
+    const fetchProductsData = async () => {
+      products.map((item) => {
+        if (item._id === listingId) {
+          setProductsData(item);
+          setImage(item.imageUrls[0]);
+
+          return null;
+        }
+      });
+    };
+
     fetchProductsData();
   }, [listingId]);
-
-  // useEffect(() => {
-  //   const fetchListing = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const res = await fetch(`/api/listing/get/${params.listingId}`);
-  //       const data = await res.json();
-  //       if (data.success === false) {
-  //         setError(true);
-  //         setLoading(false);
-  //         return;
-  //       }
-  //       setListing(data);
-  //       setLoading(false);
-  //       setError(false);
-  //     } catch (error) {
-  //       setError(true);
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchListing();
-  // }, [params.listingId]);
 
   return productsData ? (
     <div className="border-t-2 p-3 py-10 transition-opacity ease-in duration-500 opacity-100 max-w-6xl mx-auto">
@@ -70,7 +48,7 @@ export default function Listing() {
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
         {/* product images */}
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
-          <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
+          <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-hidden justify-between sm:justify-normal sm:w-[18.7%] w-full">
             {productsData.imageUrls.slice(0, 4).map((item, index) => (
               <img
                 onClick={() => setImage(item)}

@@ -6,13 +6,16 @@ import { persistor, store } from "./redux/store.js";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import ShopContextProvider from "./Context/ShopContext.jsx";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <ShopContextProvider>
-        <App />
-      </ShopContextProvider>
-    </PersistGate>
-  </Provider>
+  <BrowserRouter>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ShopContextProvider>
+          <App />
+        </ShopContextProvider>
+      </PersistGate>
+    </Provider>
+  </BrowserRouter>
 );

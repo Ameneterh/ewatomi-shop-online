@@ -133,12 +133,15 @@ function HeaderComponent() {
           )}
 
           {/* cart item */}
-          <div className="h-8 w-8 rounded-full flex items-center justify-center relative cursor-pointer">
+          <Link
+            to="/cart"
+            className="h-8 w-8 rounded-full flex items-center justify-center relative cursor-pointer"
+          >
             <FaShoppingCart className="text-2xl" />
             <div className="bg-red-600 text-white h-4 w-4 text-xs rounded-full flex items-center justify-center absolute -top-1 -right-1 p-1">
               {getCartCount()}
             </div>
-          </div>
+          </Link>
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>

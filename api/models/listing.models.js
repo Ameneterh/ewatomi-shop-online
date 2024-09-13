@@ -14,6 +14,14 @@ const listingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    subCategory: {
+      type: String,
+      required: true,
+    },
+    size: {
+      type: String,
+      default: "NS",
+    },
     discount: {
       type: Boolean,
     },

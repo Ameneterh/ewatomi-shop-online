@@ -14,7 +14,7 @@ export default function Collections() {
 
   useEffect(() => {
     setFilterProducts(products);
-  }, []);
+  }, [products]);
 
   const toggleCategory = (e) => {
     if (category.includes(e.target.value)) {
