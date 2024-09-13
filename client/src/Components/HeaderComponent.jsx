@@ -25,7 +25,7 @@ function HeaderComponent() {
   const path = useLocation().pathname;
   const dispatch = useDispatch();
 
-  const { setShowSearch } = useContext(ShopContext);
+  const { setShowSearch, getCartCount } = useContext(ShopContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -131,10 +131,12 @@ function HeaderComponent() {
               </p>
             </div>
           )}
+
+          {/* cart item */}
           <div className="h-8 w-8 rounded-full flex items-center justify-center relative cursor-pointer">
             <FaShoppingCart className="text-2xl" />
             <div className="bg-red-600 text-white h-4 w-4 text-xs rounded-full flex items-center justify-center absolute -top-1 -right-1 p-1">
-              5
+              {getCartCount()}
             </div>
           </div>
           <Navbar.Toggle />

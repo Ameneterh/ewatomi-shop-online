@@ -8,8 +8,6 @@ export default function LatestCollections() {
 
   const [listing, setListing] = useState([]);
 
-  console.log(products);
-
   useEffect(() => {
     const fetchGiftListing = async () => {
       try {

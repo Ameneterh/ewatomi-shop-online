@@ -22,7 +22,7 @@ export default function Listing() {
   // console.log(currentUser._id);
 
   const { listingId } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [productsData, setProductsData] = useState(false);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
@@ -128,7 +128,7 @@ export default function Listing() {
             </div>
           </div>
           <button
-            // onClick={handleAddToCart}
+            onClick={() => addToCart(productsData._id, size)}
             className="flex items-center bg-green-700 px-8 py-3 text-sm font-medium text-white hover:bg-green-500 active:bg-blue-600 rounded-md"
           >
             <FaCartPlus className="text-lg mr-1" />
