@@ -5,6 +5,7 @@ import contact_image from "/contact_us.jpg";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { BsWhatsapp } from "react-icons/bs";
 import { MdAlternateEmail } from "react-icons/md";
+import { FaInstagramSquare, FaFacebookSquare, FaTiktok } from "react-icons/fa";
 
 export default function ContactPage() {
   return (
@@ -24,24 +25,46 @@ export default function ContactPage() {
           <p className="text-gray-500">
             <Link
               to="tel:2348161238267"
-              className="flex items-center hover:font-medium"
+              className="flex items-center hover:text-blue-600"
             >
               <BiSolidPhoneCall className="mr-1" />
               +234 816 123 8267
             </Link>
             <Link
               to="https://wa.me/2348161238267"
-              className="flex items-center hover:font-medium"
+              className="flex items-center hover:text-blue-600"
             >
               <BsWhatsapp className="mr-1" /> +234 816 123 8267
             </Link>
             <Link
               to="https:mailto:ewatomiuniquebeautyplace@gmail.com"
-              className="flex items-center hover:font-medium"
+              className="flex items-center hover:text-blue-600"
             >
               <MdAlternateEmail className="mr-1" />
               ewatomiuniquebeautyplace@gmail.com
             </Link>
+
+            {/* social media contacts */}
+            <div className="mt-2 text-xl flex items-center gap-2">
+              <Link
+                to="https:/wwww.instagram.com"
+                className="hover:scale-125 transition-all duration-500 hover: opacity-95"
+              >
+                <FaInstagramSquare />
+              </Link>
+              <Link
+                to="https:/wwww.facebook.com"
+                className="hover:scale-125 transition-all duration-500 hover: opacity-95"
+              >
+                <FaFacebookSquare />
+              </Link>
+              <Link
+                to="https:/wwww.tiktok.com"
+                className="hover:scale-125 transition-all duration-500 hover: opacity-95"
+              >
+                <FaTiktok />
+              </Link>
+            </div>
           </p>
           <p className="font-semibold text-xl text-gray-600">
             Opportunities for Vendors
