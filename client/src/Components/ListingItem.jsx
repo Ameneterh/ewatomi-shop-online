@@ -18,9 +18,14 @@ export default function ListingItem({ listing }) {
     >
       <div className="absolute flex items-center h-8 p-2 top-1">
         <div className="flex flex-col">
-          <div className="flex items-center text-xs rounded-sm bg-white px-1 font-semibold text-slate-700 z-10 py-1">
-            {currency} {discount} off
-          </div>
+          {listing.discount === true ? (
+            <div className="flex items-center text-xs rounded-sm bg-white px-1 font-semibold text-slate-700 z-10 py-1">
+              {currency} {discount} off
+            </div>
+          ) : (
+            ""
+          )}
+
           <div className="bg-white h-3 w-3 rotate-45 ml-2 -mt-2"></div>
         </div>
       </div>
@@ -44,13 +49,25 @@ export default function ListingItem({ listing }) {
           {listing.name}
         </p>
         <div className="flex items-center justify-between font-bold text-sm p-2">
-          <span className="flex items-center text-green-500">
-            {currency}
-            {discountPrice.toLocaleString()}
-          </span>
-          <span className="text-red-400 font-normal line-through">
-            &#x20A6; {regularPrice.toLocaleString()}
-          </span>
+          {listing.discount === true ? (
+            <span className="flex items-center text-green-500">
+              {currency}
+              {discountPrice.toLocaleString()}
+            </span>
+          ) : (
+            <span className="flex items-center text-green-500">
+              {currency}
+              {regularPrice.toLocaleString()}
+            </span>
+          )}
+
+          {listing.discount === true ? (
+            <span className="text-red-400 font-normal line-through flex items-center">
+              {currency} {regularPrice.toLocaleString()}
+            </span>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </Link>

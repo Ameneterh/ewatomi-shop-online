@@ -25,7 +25,7 @@ export default function Orders() {
                 <div className="flex items-center gap-3 mt-2 text-base text-gray-700">
                   <p className="flex items-center text-md font-medium">
                     {currency}
-                    {item.discountPrice}
+                    {item.discountPrice.toLocaleString()}
                   </p>
                   <p>Quantity: 1</p>
                   <p>Size: M</p>

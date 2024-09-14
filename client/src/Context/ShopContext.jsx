@@ -1,12 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 import { TbCurrencyNaira } from "react-icons/tb";
+import { FaNairaSign } from "react-icons/fa6";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
-  const currency = <TbCurrencyNaira />;
+  // const currency = <TbCurrencyNaira />;
+  const currency = <FaNairaSign />;
   const delivery = "lagos" ? 3000 : 5000;
   const navigate = useNavigate();
 

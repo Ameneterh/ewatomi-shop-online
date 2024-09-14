@@ -16,7 +16,7 @@ export default function CartTotal() {
           <p>Subtotal</p>
           <p className="flex items-center">
             {currency}
-            {getCartAmount()}.00
+            {getCartAmount().toLocaleString()}
           </p>
         </div>
         <hr />
@@ -25,7 +25,7 @@ export default function CartTotal() {
           <p>Shipping Fee</p>
           <p className="flex items-center">
             {currency}
-            {delivery}.00
+            {delivery.toLocaleString()}
           </p>
         </div>
         <hr className="border-[1.5px] border-slate-200" />
@@ -33,7 +33,9 @@ export default function CartTotal() {
           <p>Total</p>
           <p className="flex items-center">
             {currency}
-            {getCartAmount() === 0 ? 0 : getCartAmount() + delivery}.00
+            {getCartAmount().toLocaleString() === 0
+              ? 0
+              : (getCartAmount() + delivery).toLocaleString()}
           </p>
         </div>
       </div>

@@ -15,7 +15,11 @@ export default function ContactPage() {
       </div>
 
       <div className="my-10 flex flex-col justify-center md:flex-row gap-10 mb-28">
-        <img src={contact_image} alt="" className="w-full md:max-w-[480px]" />
+        <img
+          src={contact_image}
+          alt=""
+          className="w-full md:max-w-[480px] rounded-md"
+        />
 
         <div className="flex flex-col justify-center items-start gap-4">
           <p className="font-semibold text-lg text-gray-600">Our Store</p>

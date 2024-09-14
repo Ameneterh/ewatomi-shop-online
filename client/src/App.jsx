@@ -19,13 +19,16 @@ import Cart from "./Pages/Cart";
 import PlaceOrder from "./Pages/PlaceOrder";
 import Orders from "./Pages/Orders";
 import SearchBar from "./Components/SearchBar";
+import NotFound from "./Pages/NotFound";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
   return (
     <>
       <ToastContainer />
+      <ScrollToTop />
       <HeaderComponent />
       <SearchBar />
       <Routes>
@@ -51,6 +54,7 @@ function App() {
           />
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <FooterComponent />
     </>

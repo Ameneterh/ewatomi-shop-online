@@ -59,7 +59,7 @@ export default function Cart() {
                     <div className="flex items-center gap-5 mt-2">
                       <p className="flex items-center">
                         {currency}
-                        {productsData.discountPrice}
+                        {productsData.discountPrice.toLocaleString()}
                       </p>
                       <p className="px-2 sm:py-1 border bg-slate-50 w-10 flex items-center justify-center rounded-md">
                         {item.size}

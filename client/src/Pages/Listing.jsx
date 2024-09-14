@@ -75,10 +75,23 @@ export default function Listing() {
             <FaStar className="text-lg text-slate-300" />
             <p className="pl-2">(152)</p>
           </div>
-          <p className="mt-5 text-2xl font-medium flex items-center">
-            {currency}
-            {productsData.discountPrice}
-          </p>
+
+          <div className="mt-5 flex items-center gap-2">
+            <p className="text-2xl font-medium flex items-center">
+              {currency}
+              {productsData.discountPrice.toLocaleString()}
+            </p>
+            {productsData.discount === true ? (
+              <p className="p-1 px-4 bg-slate-100 border border-b-2 border-slate-300 text-slate-500 font-medium rounded-md">
+                After Discount
+              </p>
+            ) : null}
+            {productsData.gift === true ? (
+              <p className="p-1 px-4 bg-pink-100 border border-b-2 border-pink-300 text-pink-500 font-medium rounded-md">
+                Free Gift Inside!
+              </p>
+            ) : null}
+          </div>
           <p className="mt-5 text-gray-500 md:w-4/5">
             {productsData.description}
           </p>
