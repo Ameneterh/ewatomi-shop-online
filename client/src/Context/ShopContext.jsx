@@ -7,7 +7,7 @@ export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
   const currency = <TbCurrencyNaira />;
-  const delivery = "lagos" ? 1000 : 3000;
+  const delivery = "lagos" ? 3000 : 5000;
   const navigate = useNavigate();
 
   const [products, setProducts] = useState([]);

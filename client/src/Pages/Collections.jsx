@@ -12,6 +12,8 @@ export default function Collections() {
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState("relevant");
 
+  console.log(products);
+
   useEffect(() => {
     setFilterProducts(products);
   }, [products]);

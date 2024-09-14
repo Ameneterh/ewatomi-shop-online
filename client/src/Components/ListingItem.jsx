@@ -12,35 +12,48 @@ export default function ListingItem({ listing }) {
   const { currency } = useContext(ShopContext);
 
   return (
-    <div className="group relative w-full sm:w-52 min-h-80 flex flex-col justify-between gap-1 hover:border hover:shadow-md overflow-hidden shadow-md bg-white rounded-xl pt-2">
-      <div className="flex items-center justify-between w-full h-8 p-2">
-        <div className=""></div>
+    <Link
+      to={`/listing/${listing._id}`}
+      className="relative hover:scale-105 w-52 transition ease-in-out overflow-hidden shadow-md bg-white rounded-lg"
+    >
+      <div className="absolute flex items-center h-8 p-2 top-1">
         <div className="flex flex-col">
-          <div className="flex items-center text-xs rounded-sm bg-green-500 px-1 font-semibold text-white z-10">
+          <div className="flex items-center text-xs rounded-sm bg-white px-1 font-semibold text-slate-700 z-10 py-1">
             {currency} {discount} off
           </div>
-          <div className="bg-green-500 h-3 w-3 rotate-45 ml-2 -mt-2"></div>
+          <div className="bg-white h-3 w-3 rotate-45 ml-2 -mt-2"></div>
         </div>
       </div>
-      <Link to={`/listing/${listing._id}`}>
+      <div
+        className="overflow-hidden w-full"
+        // style={{
+        //   backgroundImage: `url(${listing.imageUrls[0]})`,
+        //   backgroundSize: "cover",
+        //   backgroundPosition: "center",
+        // }}
+      >
         <img
           src={listing.imageUrls[0]}
           alt={listing._id}
           className="h-36 mx-auto w-full"
         />
-      </Link>
-      <p className="px-2 text-sm font-semibold">{listing.name}</p>
-      <p className="px-2 text-xs line-clamp-2">{listing.description}</p>
-      <div className="flex items-center justify-between font-bold text-sm p-2">
-        <span className="flex items-center text-green-500">
-          {currency}
-          {discountPrice.toLocaleString()}
-        </span>
-        <span className="text-red-400 font-normal line-through">
-          &#x20A6; {regularPrice.toLocaleString()}
-        </span>
       </div>
-    </div>
+
+      <div className="flex flex-col justify-between">
+        <p className="pt-2 px-2 pb-1 text-sm font-medium line-clamp-1">
+          {listing.name}
+        </p>
+        <div className="flex items-center justify-between font-bold text-sm p-2">
+          <span className="flex items-center text-green-500">
+            {currency}
+            {discountPrice.toLocaleString()}
+          </span>
+          <span className="text-red-400 font-normal line-through">
+            &#x20A6; {regularPrice.toLocaleString()}
+          </span>
+        </div>
+      </div>
+    </Link>
 
     // <div className="bg-white shadow-md hover:shadow-lg transition-shadow overflow-hidden rounded-lg w-full sm:w-[250px]">
     //   <Link to={`/listing/${listing._id}`}>

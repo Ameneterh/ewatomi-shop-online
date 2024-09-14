@@ -27,18 +27,18 @@ export default function Listing() {
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
 
+  const fetchProductsData = async () => {
+    products.map((item) => {
+      if (item._id === listingId) {
+        setProductsData(item);
+        setImage(item.imageUrls[0]);
+
+        return null;
+      }
+    });
+  };
+
   useEffect(() => {
-    const fetchProductsData = async () => {
-      products.map((item) => {
-        if (item._id === listingId) {
-          setProductsData(item);
-          setImage(item.imageUrls[0]);
-
-          return null;
-        }
-      });
-    };
-
     fetchProductsData();
   }, [listingId]);
 

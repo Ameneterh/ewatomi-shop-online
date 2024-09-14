@@ -18,10 +18,6 @@ const listingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    size: {
-      type: String,
-      default: "NS",
-    },
     discount: {
       type: Boolean,
     },
@@ -39,6 +35,10 @@ const listingSchema = new mongoose.Schema(
     quantity: {
       type: Number,
       required: true,
+    },
+    sizes: {
+      type: Array,
+      default: "NS",
     },
     imageUrls: {
       type: Array,
