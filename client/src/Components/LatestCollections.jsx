@@ -11,7 +11,7 @@ export default function LatestCollections() {
   useEffect(() => {
     const fetchGiftListing = async () => {
       try {
-        const res = await fetch("/api/listing/get?limit=4");
+        const res = await fetch("/api/listing/get");
         const data = await res.json();
         setListing(data);
       } catch (error) {

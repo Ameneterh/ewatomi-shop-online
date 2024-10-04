@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
+    fullname: {
+      type: String,
+      required: true,
+    },
     username: {
       type: String,
       required: true,
@@ -25,10 +29,13 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    cartData: { type: Object, default: {} },
+    socialMedia: { type: Object, default: {} },
   },
+  { minimize: false },
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.models.User || mongoose.model("User", userSchema);
 
 export default User;

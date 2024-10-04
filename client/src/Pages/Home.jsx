@@ -17,7 +17,7 @@ export default function Home() {
   useEffect(() => {
     const fetchGiftListing = async () => {
       try {
-        const res = await fetch("/api/listing/get?gift=true&limit=4");
+        const res = await fetch("/api/listing/get?gift=true");
         const data = await res.json();
         setGiftListing(data);
       } catch (error) {
@@ -27,7 +27,7 @@ export default function Home() {
 
     const fetchDiscountListings = async () => {
       try {
-        const res = await fetch("/api/listing/get?discount=true&limit=4");
+        const res = await fetch("/api/listing/get?discount=true");
         const data = await res.json();
         setDiscountListing(data);
         fetchGiftListing();

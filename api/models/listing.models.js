@@ -32,9 +32,12 @@ const listingSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    quantity: {
-      type: Number,
-      required: true,
+    available: {
+      type: Boolean,
+      default: true,
+    },
+    bestSeller: {
+      type: Boolean,
     },
     sizes: {
       type: Array,
@@ -52,6 +55,7 @@ const listingSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Listing = mongoose.model("Listing", listingSchema);
+const Listing =
+  mongoose.models.Listing || mongoose.model("Listing", listingSchema);
 
 export default Listing;
